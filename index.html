@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WardrobeManager mockup</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="app-header">
+        <h1>WardrobeManager</h1>
+        <p>Organizeaza-ti hainele din garderoba pe sezoane si categorii.</p>
+        <p class="app-count">3 articole, dintre care 2 active</p>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <h2>Adauga articol</h2>
+            <form class="item-form">
+                <label>Denumire 
+                    <input type="text" name="denumire" placeholder="Ex: Camasa alba" />
+                </label>
+                <label>Sezon
+                    <select name=" sezon">
+                        <option value="vara">Vara</option>
+                        <option value="iarna">Iarna</option>
+                        <option value="toate">Toate sezoanele</option>
+                    </select>
+                </label>
+                <button type="submit">Adauga</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Garderoba mea</h2>
+            <!-- Cand lista e goala: <p class="empty">Nu exista niciun articol.</p> -->
+            <ul class="item-list">
+                <li class="item-card">
+                    <div>
+                        <h3>Camasa alba</h3>
+                        <span class="badge badge-vara">Vara</span>
+                    </div>
+                    <span class="status">Activ</span>
+                </li>
+                <li class="item-card done">
+                    <div>
+                        <h3>Geaca de iarna</h3>
+                        <span class="badge badge-iarna">Iarna</span>
+                    </div>
+                    <span class="status">Spălat</span>
+                </li>
+                <li class="item-card">
+                    <div>
+                        <h3>Pantaloni sport</h3>
+                        <span class="badge badge-toate">Toate sezoanele</span>
+                    </div>
+                    <span class="status">Activ</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="app-footer">Proiect Tehnologii Web</footer>
+</body>
+</html>
