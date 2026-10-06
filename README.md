@@ -46,3 +46,7 @@ Details per stage: see the `ai-log/` folder.
 | S1-R6 | 2 columns on desktop, 1 under 700px | [style.css#L...](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/style.css#L...) (@media) | resize < 700px |
 | S1-R7 | visible focus, readable dark theme | [style.css#L...](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/style.css#L...) | Tab; dark mode |
 | S1-R8 | commit "Stage 1" pushed | [link to commit](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/commit/<hash>) | commit history |
+
+
+## Stage 2: data logic
+Plain JavaScript, no DOM. garderoba.js holds the array and the functions that read and change it. Results are printed in the browser console (F12).
