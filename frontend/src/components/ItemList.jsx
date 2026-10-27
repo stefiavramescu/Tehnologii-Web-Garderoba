@@ -1,6 +1,6 @@
 import ItemCard from "./ItemCard.jsx";
 
-export default function ItemList({ articole }) {
+export default function ItemList({ articole, onToggle, onDelete }) {
     if (articole.length === 0) {
         return <p className="empty">Nu există niciun articol în garderobă.</p>;
     }
@@ -8,7 +8,12 @@ export default function ItemList({ articole }) {
     return (
         <ul className="item-list">
             {articole.map((articol) => (
-                <ItemCard key={articol.id} articol={articol} />
+                <ItemCard
+                    key={articol.id}
+                    articol={articol}
+                    onToggle={onToggle}
+                    onDelete={onDelete}
+                />
             ))}
         </ul>
     );

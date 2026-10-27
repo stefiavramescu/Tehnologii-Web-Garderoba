@@ -34,6 +34,9 @@ The list is rendered from the data, through two components:
 ItemList receives the whole array and renders one card per item
 ItemCard receives a single item through props and displays it
 
+## Stage 5: local state and events
+The list lives in React state. Checking and deleting work from the page, and the counters in the header follow automatically. A button in the header switches between light and dark mode.
+
 ## AI usage
 Tool | Used for
 ---|---
@@ -46,7 +49,7 @@ Details per stage: see the `ai-log/` folder.
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components rendered from data
-- [ ] Stage 5: local state and events
+- [x] Stage 5: local state and events
 
 ## Tabel de verificare (Stage 1)
 
@@ -96,3 +99,16 @@ Details per stage: see the `ai-log/` folder.
 | S4-R5 | state changes the card look | [ItemCard.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/components/ItemCard.jsx) | toggle a done flag |
 | S4-R6 | README Stage 4 section + AI log | [README.md / ai-log](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/README.md) | read |
 | S4-R7 | commit "Stage 4" pushed | [commit history](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/commits/main) | commit history |
+
+## Tabel de verificare (Stage 5)
+
+| ID | Requirement | Where (permalink) | How to check |
+| --- | --- | --- | --- |
+| S5-R1 | list kept in useState, in App | [App.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx) | read |
+| S5-R2 | toggling changes state and card look | [App.jsx / ItemCard.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx) | click a checkbox |
+| S5-R3 | delete removes the item | [App.jsx / ItemCard.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx) | click Delete|
+| S5-R4 | header counter derived, not in state | [App.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx)| toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | [App.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx) | read|
+| S5-R6 | light/dark toggle: state + data-theme on html | [App.jsx / App.css](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx) | click the button |
+| S5-R7 | no console warnings; README + AI log | [README.md / ai-log](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/README.md)| F12, Console |
+| S5-R8 | commit "Stage 5" pushed | [commit history](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/commits/main) | commit history|
