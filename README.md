@@ -18,46 +18,36 @@ Sample data used across all stages:
 3. Pantaloni sport, active (to wash), Toate sezoanele
 
 ## How to run
-Open index.html in a browser. No build step, no server.
+cd frontend
+npm install
+npm run dev
+Then open the address printed in the terminal (http://localhost:5173).
 
-## Stage 2: data logic
-Plain JavaScript, no DOM. garderoba.js holds the array and the functions that read and change it. Results are printed in the browser console (F12).
+## Stage 3: Vite and React project
+The app now lives in frontend/, built with Vite. The data from stage 2 moved into the main component; the list is still printed raw.
 
 ## AI usage
 Tool | Used for
 ---|---
-Gemini | Guidance and code structuring for stages 1 and 2
+Gemini | Guidance and code structuring for stages 1, 2, and 3
 
 Details per stage: see the `ai-log/` folder.
 
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
-- [ ] Stage 3: React project initialization
+- [x] Stage 3: Vite and React project
 - [ ] Stage 4: components built from data
 - [ ] Stage 5: interactive features, API, database
 
-## Tabel de verificare (Stage 1)
+## Tabel de verificare (Stage 3)
 
 | ID | Requirement | Where (permalink) | How to check |
 | --- | --- | --- | --- |
-| S1-R1 | README: description, fields, sample data, how to run | [README.md](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/README.md) | read |
-| S1-R2 | AI usage section | [README.md](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/README.md) | read |
-| S1-R3 | AI log for stage 1 | [ai-log/etapa-01.md](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/ai-log/etapa-01.md) | read |
-| S1-R4 | header, form (text + select), 3 cards with own data | [index.html](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/index.html) | open the page |
-| S1-R5 | finished card looks different | [style.css](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/style.css) (.done) | look at the card |
-| S1-R6 | 2 columns on desktop, 1 under 700px | [style.css](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/style.css) (@media) | resize < 700px |
-| S1-R7 | visible focus, readable dark theme | [style.css](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/style.css) | Tab; dark mode |
-| S1-R8 | commit "Stage 1" pushed | [commit history](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/commits/main) | commit history |
-
-## Tabel de verificare (Stage 2)
-
-| ID | Requirement | Where (permalink) | How to check |
-| --- | --- | --- | --- |
-| S2-R1 | JS file linked, logs on page load | [index.html](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/index.html) | open page, F12 |
-| S2-R2 | 3+ items with id, name, state, tag | [garderoba.js](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/garderoba.js) | read |
-| S2-R3 | list, count, search, add, toggle, delete | [garderoba.js](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/garderoba.js) | console output |
-| S2-R4 | add rejects empty name and invalid tag | [garderoba.js](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/garderoba.js) | last 2 console lines |
-| S2-R5 | original array unchanged after add | [garderoba.js](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/garderoba.js) | console line |
-| S2-R6 | README Stage 2 section + AI log | [README.md / ai-log](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/README.md) | read |
-| S2-R7 | commit "Stage 2" pushed | [commit history](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/commits/main) | commit history |
+| S3-R1 | npm run dev starts without errors | [frontend/package.json](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/package.json) | npm install, npm run dev |
+| S3-R2 | app name and counter computed from data | [frontend/src/App.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx)| edit data, save|
+| S3-R3 | data from README, not from the example | [frontend/src/App.jsx](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.jsx)| compare with README|
+| S3-R4 | stage 1 styles reused | [frontend/src/App.css](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/src/App.css) | look at the page |
+| S3-R5 | node_modules ignored, build passes | [frontend/.gitignore](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/frontend/.gitignore)| npm run build |
+| S3-R6 | README Stage 3 section + AI log | [README.md / ai-log](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/blob/main/README.md)| read |
+| S3-R7 | commit "Stage 3" pushed | [commit history](https://github.com/stefiavramescu/Tehnologii-Web-Garderoba/commits/main) | commit history |
