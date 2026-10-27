@@ -1,3 +1,5 @@
+import ItemList from "./components/ItemList.jsx";
+
 const garderoba = [
     { id: 1, denumire: "Camasa alba", gata: false, sezon: "Vara" },
     { id: 2, denumire: "Geaca de iarna", gata: true, sezon: "Iarna" },
@@ -20,8 +22,7 @@ export default function App() {
             <main className="container">
                 <section className="panel">
                     <h2>Garderoba mea</h2>
-                    {/* Temporar: date brute sub forma JSON */}
-                    <pre>{JSON.stringify(garderoba, null, 2)}</pre>
+                    <ItemList articole={garderoba} />
                 </section>
             </main>
         </>
