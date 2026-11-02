@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import "./App.css";
+import "./App.css"; // Aici se încarcă stilurile!
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

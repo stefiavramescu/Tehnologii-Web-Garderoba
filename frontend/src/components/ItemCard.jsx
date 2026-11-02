@@ -1,5 +1,3 @@
-const ETICHETE_SEZON = { Vara: "Vara", Iarna: "Iarna", "Toate sezoanele": "Toate sezoanele" };
-
 export default function ItemCard({ articol, onToggle, onDelete }) {
     return (
         <li className={articol.gata ? "item-card done" : "item-card"}>
@@ -9,20 +7,21 @@ export default function ItemCard({ articol, onToggle, onDelete }) {
                     checked={articol.gata}
                     onChange={() => onToggle(articol.id)}
                 />
-                <div>
+                <div className="item-content">
                     <h3>{articol.denumire}</h3>
-                    <span className={`badge badge-${articol.sezon.toLowerCase().replace(/\s+/g, '-')}`}>
-                        {ETICHETE_SEZON[articol.sezon]}
-                    </span>
+                    <span className="badge-season">{articol.sezon}</span>
                 </div>
             </label>
-            <button
-                className="btn-danger"
-                onClick={() => onDelete(articol.id)}
-                aria-label={`Sterge ${articol.denumire}`}
-            >
-                Şterge
-            </button>
+            <div className="card-footer-flex">
+                <span className="status-text">{articol.gata ? "✨ Spălat" : "⏳ De spălat"}</span>
+                <button
+                    className="btn-delete-lux"
+                    onClick={() => onDelete(articol.id)}
+                    aria-label={`Șterge ${articol.denumire}`}
+                >
+                    ✕ Șterge
+                </button>
+            </div>
         </li>
     );
 }

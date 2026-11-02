@@ -2,18 +2,14 @@ import { useState } from "react";
 import ItemList from "./components/ItemList.jsx";
 
 const GARDEROBA_INITIALA = [
-    { id: 1, denumire: "Camasa alba", gata: false, sezon: "Vara" },
-    { id: 2, denumire: "Geaca de iarna", gata: true, sezon: "Iarna" },
-    { id: 3, denumire: "Pantaloni sport", gata: false, sezon: "Toate sezoanele" }
+    { id: 1, denumire: "Burgundy Long Coat", gata: false, sezon: "Winter" },
+    { id: 2, denumire: "Summer Silk Shirt", gata: true, sezon: "Summer" },
+    { id: 3, denumire: "Classic Black Trousers", gata: false, sezon: "All Seasons" }
 ];
-
-function temaInitiala() {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
 
 export default function App() {
     const [articole, setArticole] = useState(GARDEROBA_INITIALA);
-    const [tema, setTema] = useState(temaInitiala);
+    const [tema, setTema] = useState("light");
 
     function handleToggle(id) {
         setArticole((prev) =>
@@ -26,33 +22,35 @@ export default function App() {
     }
 
     function handleTema() {
-        const noua = tema === "dark" ? "light" : "dark";
-        setTema(noua);
-        document.documentElement.dataset.theme = noua;
+        const nouaTema = tema === "dark" ? "light" : "dark";
+        setTema(nouaTema);
+        document.documentElement.dataset.theme = nouaTema;
     }
 
     const active = articole.filter((t) => !t.gata).length;
 
     return (
-        <>
-            <header className="app-header">
-                <button
-                    className="theme-toggle"
-                    onClick={handleTema}
-                    aria-pressed={tema === "dark"}
-                >
-                    {tema === "dark" ? "Mod luminos" : "Mod întunecat"}
+        <div className="app-wrapper">
+            {/* Header cu textură de dulap și un fascicul de lumină LED animat unic */}
+            <header className="fashion-hero-header">
+                <button className="theme-floating-btn" onClick={handleTema}>
+                    {tema === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
                 </button>
-                <h1>WardrobeManager</h1>
-                <p>Organizeaza-ti hainele din garderoba pe sezoane si categorii.</p>
-                <p className="app-count">
-                    {articole.length} articole, dintre care {active} active
-                </p>
+                <div className="hero-content">
+                    <h1>Wardrobe Manager</h1>
+                    <p>Digital Closet Collection</p>
+                    <div className="hero-counter-pill">
+                        📦 Total items: <strong>{articole.length}</strong> &nbsp;|&nbsp; ⏳ Active (to wash): <strong>{active}</strong>
+                    </div>
+                </div>
             </header>
 
-            <main className="container">
-                <section className="panel">
-                    <h2>Garderoba mea</h2>
+            {/* Conținutul principal */}
+            <main className="fashion-main-container">
+                <h2 className="section-title">
+                    <span>Your Closet Collection</span>
+                </h2>
+                <section>
                     <ItemList
                         articole={articole}
                         onToggle={handleToggle}
@@ -60,6 +58,6 @@ export default function App() {
                     />
                 </section>
             </main>
-        </>
+        </div>
     );
 }

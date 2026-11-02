@@ -2,7 +2,7 @@ import ItemCard from "./ItemCard.jsx";
 
 export default function ItemList({ articole, onToggle, onDelete }) {
     if (articole.length === 0) {
-        return <p className="empty">Nu există niciun articol în garderobă.</p>;
+        return <p className="empty-drawer">Nu există articole în această secțiune momentan.</p>;
     }
 
     return (
