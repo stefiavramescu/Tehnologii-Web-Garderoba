@@ -1,0 +1,9 @@
+{
+  "tasks": [
+    { "id": 1, "denumire": "Palton lung burgundy", "gata": false, "sezon": "Winter" },
+    { "id": 2, "denumire": "Cămașă elegantă de vară", "gata": true, "sezon": "Summer" },
+    { "id": 3, "denumire": "Cămașă din mătase neagră", "gata": false, "sezon": "All Seasons" },
+    { "id": 4, "denumire": "Pantaloni clasici negri", "gata": false, "sezon": "Winter" },
+    { "id": 5, "denumire": "Tricou sport", "gata": true, "sezon": "Summer" }
+  ]
+}

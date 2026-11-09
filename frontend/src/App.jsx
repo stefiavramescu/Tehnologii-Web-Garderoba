@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemList from "./components/ItemList.jsx";
-
-const GARDEROBA_INITIALA = [
-    { id: 1, denumire: "Burgundy Long Coat", gata: false, sezon: "Winter" },
-    { id: 2, denumire: "Summer Silk Shirt", gata: true, sezon: "Summer" },
-    { id: 3, denumire: "Classic Black Trousers", gata: false, sezon: "All Seasons" }
-];
+import { fetchTasks } from "./api.js";
 
 export default function App() {
-    const [articole, setArticole] = useState(GARDEROBA_INITIALA);
+    const [articole, setArticole] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [tema, setTema] = useState("light");
+
+    // Preluare date la montarea componentei
+    useEffect(() => {
+        let ignore = false;
+        async function load() {
+            try {
+                const data = await fetchTasks();
+                if (!ignore) setArticole(data);
+            } catch (err) {
+                if (!ignore) setError(err.message);
+            } finally {
+                if (!ignore) setLoading(false);
+            }
+        }
+        load();
+        return () => {
+            ignore = true;
+        };
+    }, []);
 
     function handleToggle(id) {
         setArticole((prev) =>
@@ -31,7 +47,6 @@ export default function App() {
 
     return (
         <div className="app-wrapper">
-            {/* Header cu textură de dulap și un fascicul de lumină LED animat unic */}
             <header className="fashion-hero-header">
                 <button className="theme-floating-btn" onClick={handleTema}>
                     {tema === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
@@ -45,18 +60,28 @@ export default function App() {
                 </div>
             </header>
 
-            {/* Conținutul principal */}
             <main className="fashion-main-container">
                 <h2 className="section-title">
                     <span>Your Closet Collection</span>
                 </h2>
-                <section>
-                    <ItemList
-                        articole={articole}
-                        onToggle={handleToggle}
-                        onDelete={handleDelete}
-                    />
-                </section>
+
+                {loading && <p className="info">Se încarcă...</p>}
+
+                {error && (
+                    <p className="error">
+                        Nu am putut încărca datele: {error}. Rulează <code>npm run api</code>?
+                    </p>
+                )}
+
+                {!loading && !error && (
+                    <section>
+                        <ItemList
+                            articole={articole}
+                            onToggle={handleToggle}
+                            onDelete={handleDelete}
+                        />
+                    </section>
+                )}
             </main>
         </div>
     );
